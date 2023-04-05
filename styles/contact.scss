@@ -1,0 +1,23 @@
+.layout .contact-box {
+    width: 100%;
+
+    .recent-box {
+        width: 100%;
+        border-bottom: 2px solid;
+        padding-bottom: 10px;
+        overflow-x: auto;
+    }
+
+    label.cbox {
+        margin-right: 10px;
+    }
+
+    button.btn-del {
+        margin-top: 10px;
+    }
+
+    div.people {
+        max-height: 530px;
+        overflow-y: auto;
+    }
+}

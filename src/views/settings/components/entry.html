@@ -1,0 +1,52 @@
+html!(
+<div class="column is-12">
+    <div class="card">
+        <div class="card-content">
+            <div class="content">
+                <div class="columns">
+                    <div class="column is-3 is-flex is-align-items-flex-center is-justify-content-flex-center">
+                        <label class="checkbox cbox is-flex is-align-items-flex-center">
+                            <input type="checkbox" checked={ check } onclick={ check_btn_clk } />
+                        </label>
+                        <figure class="image is-64x64">
+                            <img src={""} alt={"xxx"} />
+                        </figure>
+                    </div>
+                    <div
+                        class="column is-7 is-flex is-justify-content-space-between is-flex-direction-column is-align-items-stretch">
+
+                        if is_edit{
+                        <div class="control has-icons-left">
+                            <span class="icon has-text-danger is-left">{"*"}</span>
+                            <input ref={&self.relay_node} class={classes!("input", relay_input_cls)} type="text"
+                                value={relay_value} placeholder={t!("relay url")} />
+                        </div>
+
+                        }else{
+                        <div>
+                            {info.uri.as_ref().map(|r|r.to_string()).or(Some("".to_string())).unwrap()}
+                        </div>
+
+                        }
+
+                    </div>
+                    <div class="column is-2 is-flex is-flex-direction-column is-align-items-stretch">
+                        <button onclick={update_confirm_btn_clk} class="button is-small is-info is-outlined">
+                            <span>{rust_i18n::t!(if is_edit{"confirm"}else{"modify"})}</span>
+                            <span class="icon is-small">
+                                <i class={classes!("fas", if is_edit{"fa-check"} else { "fa-pencil" })}></i>
+                            </span>
+                        </button>
+                        <button onclick={delete_cancel_btn_clk} class="button btn-del is-danger is-outlined is-small">
+                            <span>{rust_i18n::t!(if is_edit{"cancel"} else {"delete"})}</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+)

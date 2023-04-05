@@ -1,0 +1,26 @@
+.layout .content {
+    .send {
+        float: right;
+    }
+
+    .messages {
+        max-height: 420px;
+        overflow-y: auto;
+
+        .box {
+            .media-content {
+                .content {
+                    max-height: 300px;
+                    overflow-y: auto;
+
+                }
+
+
+            }
+
+
+
+        }
+    }
+
+}

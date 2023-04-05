@@ -1,0 +1,34 @@
+lang: 简体中文
+english: 英语
+chinese: 简体中文
+loading: 加载中
+please type your content: 请输入内容!
+nickname: 昵称
+message: 消息
+contact: 联系人
+settings: 设置
+send: 发送
+recent contact: 最近联系人
+revert-sel: 反选
+new: 新增
+modify: 修改
+delete: 删除
+confirm: 确定
+cancel: 取消
+import: 导入
+auto generate: 自动生成
+profile: 资料
+generate: 生成
+public key: 公钥
+secrect key: 私钥
+please type your secrect key: 请输入您的私钥
+please click to auto generate your keypair: 请点击按钮以生成您的秘钥对
+year: 年
+month: 月
+day: 天
+hour: 小时
+minute: 分钟
+second: 秒
+ago: 之前
+yesterday: 昨天
+relay url: 中继地址

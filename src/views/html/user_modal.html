@@ -1,0 +1,110 @@
+html!(
+<div class={classes!("modal", if props.show {"is-active"}else{""})}>
+    <div class="modal-background" onclick={hide_modal_clk.clone()}></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title has-text-centered">
+                <a href="https://github.com/nostr-protocol">{"nostr"}</a>
+                <span>{rust_i18n::t!("profile", locale=&lang)}</span>
+            </p>
+            <button class="delete" aria-label="close" onclick={hide_modal_clk.clone()}></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="tabs is-centered">
+                <ul>
+                    <li class={classes!(if is_active_auto_generate(){ "is-active" }else {""})}>
+                        <a onclick={auto_tab_clk}>
+                            <span>{rust_i18n::t!("auto generate", locale=&lang)}</span>
+                            <span class="icon"><i class="fas fa-key" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class={classes!(if is_active_import(){ "is-active" }else {""})}>
+                        <a onclick={import_tab_clk}>
+                            <span>{rust_i18n::t!("import", locale=&lang)}</span>
+                            <span class="icon"><i class="fas fa-flask" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            if is_active_auto_generate(){
+            <div class="auto">
+                <div class="columns">
+                    <div class="column is-9 field is-flex">
+                        <label class="label pk-txt is-flex mr-2">{rust_i18n::t!("public key", locale=&lang)} <strong
+                                class="has-text-danger ">{"*"}</strong>
+                        </label>
+                        <div class="control has-icons-left is-flex-grow-1">
+                            <input ref={auto_public_node_ref} class={classes!("input",if
+                                validate.auto{"is-danger"}else{"is-info"})} readonly={true} />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-key"></i>
+                            </span>
+                            <div class="help has-text-danger">
+                                if validate.auto{
+                                {rust_i18n::t!("please click to auto generate your keypair", locale=&lang)}
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="columns">
+                    <div class="column is-9 field is-flex">
+                        <label class="label pk-txt is-flex"> {rust_i18n::t!("secrect key", locale=&lang)}<strong
+                                class="has-text-danger mr-2">{"*"}</strong>
+                        </label>
+
+                        <div class="control  has-icons-left is-flex-grow-1">
+                            <input ref={auto_private_node_ref} class={classes!("input",if
+                                validate.auto{"is-danger"}else{"is-info"})} readonly={true} />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-key"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="column is-3">
+                        <button class="button is-info is-outlined" onclick={generate_clk}>
+                            <span>{rust_i18n::t!("generate", locale=&lang)}</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-key"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            }
+            if is_active_import(){
+            <div class="import is-flex is-align-items-flex-end">
+                <div class="is-flex-grow-4 is-small">
+                    <label class="label field">{rust_i18n::t!("please type your secrect key", locale=&lang)}<strong
+                            class="has-text-danger">{"*"}</strong>
+                        <p class={classes!("control","has-icons-left", "has-icons-right" )}>
+                            <input ref={import_private_node_ref} oninput={import_input} class={classes!("input",if
+                                validate.import{"is-danger"}else{"is-info"})} />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-key"></i>
+                            </span>
+                            <span class="icon is-small is-right is-clickable has-text-danger"
+                                onclick={clear_import_clk}>
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </p>
+                        <p class="help has-text-danger">
+                            if validate.import{
+                            {rust_i18n::t!("please type your secrect key", locale=&lang)}
+                            }
+                        </p>
+                    </label>
+                </div>
+                <div class="is-flex-grow-1"></div>
+            </div>
+            }
+
+        </section>
+        <footer class="modal-card-foot is-justify-content-flex-end">
+            <button class="button is-success" onclick={confirm_clk}>{rust_i18n::t!("confirm", locale=&lang)}</button>
+            <button class="button" onclick={hide_modal_clk.clone()}>{rust_i18n::t!("cancel", locale=&lang)}</button>
+        </footer>
+    </div>
+</div>
+)

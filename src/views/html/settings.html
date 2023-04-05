@@ -1,0 +1,38 @@
+html!(
+<div class="contact-box">
+    <div class="box">
+        <div class="level">
+            <div class="level-left">
+                <div class="is-flex  is-align-items-flex-center is-justify-content-flex-center">
+                    <label class="checkbox cbox is-flex is-align-items-flex-center">
+                        <input type="checkbox" checked={self.check_all} onclick={select_all_or_not_clk} />
+                    </label>
+                    <button onclick={revert_clk}
+                        class="button is-link is-outlined">{rust_i18n::t!("revert-sel")}</button>
+                </div>
+            </div>
+            <div class="level-right">
+                <div class="buttons is-justify-content-flex-end">
+                    <button onclick={delete_checked_clk} class="button is-danger is-outlined">
+                        <span>{rust_i18n::t!("delete")}</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </button>
+                    <button onclick={new_clk} class="button is-info is-outlined">
+                        <span>{rust_i18n::t!("new")}</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="people columns is-multiline">
+        {new_relays}
+        {relays}
+    </div>
+</div>
+)

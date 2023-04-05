@@ -1,0 +1,34 @@
+lang: English
+english: English
+chinese: Chinese
+loading: loading
+please type your content: please type your content!
+nickname: nickname
+message: Message
+contact: Contact
+settings: Settings
+send: Send
+recent contact: Recent Contacts
+revert-sel: Revert
+new: Add
+modify: Modify
+delete: Delete
+confirm: Ok
+cancel: Cancel
+import: Import
+auto generate: Auto Generate
+profile: Profile
+generate: Generate
+public key: Public Key
+secrect key: Secrect Key
+please type your secrect key: Please type your secrect key
+please click to auto generate your keypair: Please click the button to auto generate your keypair
+year: year%{plural}
+month: month%{plural}
+day: day%{plural}
+hour: "hour%{plural} "
+minute: "minute%{plural} "
+second: "second%{plural} "
+ago: " ago"
+yesterday: yesterday
+relay url: Relay Url

@@ -1,0 +1,87 @@
+html!(
+<div class={classes!("columns layout has-background-light is-multiline".to_owned())}>
+    <div class={classes!("column is-12".to_owned())}>
+        <div class={classes!("is-flex is-flex-direction-row is-justify-content-flex-end".to_owned())}>
+            <div class={classes!("lang")}>
+                <div class="dropdown is-hoverable">
+                    <div class="dropdown-trigger">
+                        <button class="button is-info is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <span>{rust_i18n::t!("lang", locale=&cur_lang)}</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" onclick={zhcn_clk}>
+                                {rust_i18n::t!("chinese", locale=&cur_lang)}
+                            </a>
+                            <a class="dropdown-item" onclick={eng_clk}>
+                                {rust_i18n::t!("english", locale=&cur_lang)}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class={classes!("profile", "is-clickable" )} onclick={profile_clk}>
+                <figure class="image is-48x48">
+                    <img src={user_ctx.avatar_url.clone()} />
+                </figure>
+                <div class="nickname">{user_ctx.nick_name.clone()}</div>
+            </div>
+        </div>
+    </div>
+    <div class={classes!("column is-1".to_owned())}></div>
+    <div class={classes!("column", "is-2" )}>
+        <ul class={classes!("menu-ul")}>
+            <li>
+                <Link<MainRoute> classes={classes!("button", "is-justify-content-flex-start",
+                    "is-info", if is_home()
+                    {""} else {"is-outlined"})}
+                    to={MainRoute::Home}>
+                    <span class={classes!("icon")}>
+                        <i class={classes!("fas fa-message".to_owned())}></i>
+                    </span>
+                    <span>
+                        { rust_i18n::t!("message", locale=&cur_lang) }
+                    </span>
+                </Link<MainRoute>>
+            </li>
+            <li>
+                <Link<MainRoute> classes={classes!("button", "is-justify-content-flex-start",
+                    "is-info", if
+                    is_contact() {""} else {"is-outlined"})}
+                    to={MainRoute::Contact}>
+                    <span class={classes!("icon")}>
+                        <i class={classes!("fas fa-address-book".to_owned())}></i>
+                    </span>
+                    <span>
+                        { rust_i18n::t!("contact", locale=&cur_lang) }
+                    </span>
+                </Link<MainRoute>>
+            </li>
+            <li>
+                <Link<MainRoute> classes={classes!("button", "is-justify-content-flex-start",
+                    "is-info", if
+                    is_setting() {""} else {"is-outlined"})}
+                    to={MainRoute::SettingsRoot}>
+                    <span class={classes!("icon")}>
+                        <i class={classes!("fas fa-gear".to_owned())}></i>
+                    </span>
+                    <span>
+                        { rust_i18n::t!("settings", locale=&cur_lang) }
+                    </span>
+                </Link<MainRoute>>
+            </li>
+        </ul>
+    </div>
+    <div class={classes!("column is-8".to_owned())}>
+        <div class={classes!("content")}>
+            {for props.children.iter()}
+            <UserModal show={*user_modal} />
+        </div>
+    </div>
+    <div class={classes!("column is-1".to_owned())}></div>
+</div>
+)

@@ -1,0 +1,3 @@
+[submodule "yew-websocket"]
+	path = yew-websocket
+	url = https://github.com/leehyong/yew-websocket.git

@@ -1,0 +1,13 @@
+html!(
+<div class="tag is-info is-light">
+    if let Some(name) = info.nickname.as_ref(){
+    {
+    if name.is_empty(){
+    {front_n_chars(&info.pubkey.as_ref().unwrap().to_string(), 10)}
+    }else{
+    {name.to_string()}
+    }
+    }
+    }
+</div>
+)

@@ -1,0 +1,46 @@
+.layout {
+    margin: 20px 150px;
+
+    .lang {
+        margin-right: 10px;
+        width: 120px;
+    }
+
+    .profile {
+        position: relative;
+
+        .nickname {
+            position: absolute;
+            top: 20px;
+            font-size: 10px;
+        }
+
+    }
+
+    .menu-ul {
+        width: 140px;
+        height: 300px;
+
+        li {
+            width: 100%;
+
+            .button {
+                width: 100%;
+
+                .icon {
+                    margin-left: 6px;
+                    margin-right: 18px;
+                }
+            }
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 12px;
+        }
+    }
+
+    &.column.content {
+        min-height: 620px;
+        max-height: 720px;
+    }
+}
