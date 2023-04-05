@@ -1,7 +1,7 @@
 mod entry;
 mod recent;
 use std::borrow::Borrow;
-use std::collections::{HashSet};
+use std::collections::HashSet;
 use std::mem::swap;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
@@ -215,7 +215,6 @@ impl Component for Contact {
                         }
                     }
                     if !pks.is_empty() {
-
                         self.user_contact_handle
                             .dispatch(UserContactAction::RemoveBatch(pks));
                     }

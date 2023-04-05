@@ -312,7 +312,7 @@ impl Component for AppClient {
                         if let RelayMessage::Ok {
                             event_id,
                             status,
-                            message,
+                            message: _,
                         } = rmsg
                         {
                             self.user_event_handle

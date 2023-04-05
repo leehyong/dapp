@@ -5,10 +5,8 @@ use self::entry::*;
 use crate::ctxs::*;
 
 use std::borrow::Borrow;
-use std::collections::{HashSet};
+use std::collections::HashSet;
 use std::mem::swap;
-
-
 
 pub struct Settings {
     i18n_handle: I18nLocaleContext,

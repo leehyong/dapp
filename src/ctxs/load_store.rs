@@ -17,13 +17,13 @@ pub trait LoadStore: Default + LoadStoreKey {
         Self: Serialize;
 }
 
-
-impl<T> LoadStore for T where
-    T: LoadStoreKey + Default
+impl<T> LoadStore for T
+where
+    T: LoadStoreKey + Default,
 {
     fn load() -> Self
-        where
-                for<'de> Self: Deserialize<'de>,
+    where
+        for<'de> Self: Deserialize<'de>,
     {
         log::info!("load:{}", Self::load_store_key());
         let ret = if let Ok(data) = LocalStorage::get::<Self>(Self::load_store_key()) {
@@ -35,8 +35,8 @@ impl<T> LoadStore for T where
     }
 
     fn store(&self)
-        where
-            Self: Serialize,
+    where
+        Self: Serialize,
     {
         log::info!(
             "store:{}-{}",
